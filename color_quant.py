@@ -3,7 +3,7 @@ from sklearn.datasets import load_sample_image
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
-img = load_sample_image("Capture.jpg")
+img = plt.imread("Capture.jpg")
 
 img = np.array(img, dtype = np.float64) / 255
 
