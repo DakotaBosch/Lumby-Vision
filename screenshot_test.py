@@ -8,7 +8,7 @@ from PIL import Image
 start_time = time.time()
 
 #screenshot location
-mon = {'top': 300, 'left': 500, 'width': 800, 'height': 800}
+mon = {'top': 200, 'left': 300, 'width': 1200, 'height': 800}
 
 duration = np.empty((1,))
 
@@ -17,16 +17,16 @@ with mss.mss() as sct:
         last_time = time.time()
         im = sct.grab(mon)
 
-        #convert mss image to PIL image
-        img = Image.frombytes('RGB', im.size, im.bgra, 'raw', 'RGBX')
+        #convert mss image to PIL image, BRG OR RGB
+        img = Image.frombytes('RGB', im.size, im.bgra, 'raw', 'BGRX')
         
-        img = img.convert('RGB', palette= Image.ADAPTIVE, colors =1)
+        #img = img.convert('RGB', palette= Image.ADAPTIVE, colors =1)
 
         #less efficient conversion
         #img = Image.frombytes('RGB', im.size, im.rgb)
 
         #compress PIL image to (X,Y)
-        img = img.resize((200,200))
+        img = img.resize((600,400))
         
         
         #sct.compression_level = 9
@@ -40,6 +40,8 @@ with mss.mss() as sct:
         
         #break cycle w/ user input 'q'
         if cv2.waitKey(25) & 0xFF == ord('q'):
+            #why are blue and red opposite of the live output
+            img.save('screenshot.png')
             cv2.destroyAllWindows()
             break
     
