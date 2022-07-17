@@ -18,13 +18,15 @@ with mss.mss() as sct:
         im = sct.grab(mon)
 
         #convert mss image to PIL image
-        img = Image.frombytes('RGB', im.size, im.bgra, 'raw', 'BGRX')
+        img = Image.frombytes('RGB', im.size, im.bgra, 'raw', 'RGBX')
         
+        img = img.convert('RGB', palette= Image.ADAPTIVE, colors =1)
+
         #less efficient conversion
         #img = Image.frombytes('RGB', im.size, im.rgb)
 
         #compress PIL image to (X,Y)
-        img = img.resize((400,400))
+        img = img.resize((200,200))
         
         
         #sct.compression_level = 9
