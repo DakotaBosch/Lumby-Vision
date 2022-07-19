@@ -2,7 +2,10 @@ import glob
 import os
 import random
 
-imgs =  glob.glob("data/*.png")
+
+dir = "C:\\Users\\Lumpy\\Documents\\GitHub\\OSRS_Vince\\darknet\\data\\custom\\*.png"
+
+imgs =  glob.glob(dir)
 
 data_size = len(imgs)
 ratio = 0.8
