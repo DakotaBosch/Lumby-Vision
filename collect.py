@@ -22,26 +22,19 @@ with mss.mss() as sct:
         #convert mss image to PIL image, BRG OR RGB
         img = Image.frombytes('RGB', im.size, im.bgra, 'raw', 'BGRX')
         
-        #img = img.convert('RGB', palette= Image.ADAPTIVE, colors =1)
-
-        #less efficient conversion
-        #img = Image.frombytes('RGB', im.size, im.rgb)
+        scale = 0.1
 
         #compress PIL image to (X,Y)
-        img = img.resize((900,500))
+        img = img.resize(img.shape*scale)
         
-        
-        #sct.compression_level = 9
-
         wid, hgt = img.size
 
         duration = np.append(duration, time.time()*1000-last_time*1000)
-        #print('The loop took: {:.0f}'.format(time.time()*1000-last_time*1000) + ' ms')
 
         cv2.imshow('test', np.array(img))
         
         #why are blue and red opposite of the live output
-        img.save("data/" + str(count) + '.png')
+        img.save("darknet/data/custom/" + str(count) + '.png')
         time.sleep(5)
 
 
@@ -50,6 +43,4 @@ with mss.mss() as sct:
             cv2.destroyAllWindows()
             break
     
-
     print(str(wid) + "x" + str(hgt))
-    print('Average time for each image: {:.0f}'.format(np.mean(duration)) + 'ms')

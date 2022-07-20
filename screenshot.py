@@ -20,13 +20,16 @@ with mss.mss() as sct:
         #convert mss image to PIL image, BRG OR RGB
         img = Image.frombytes('RGB', im.size, im.bgra, 'raw', 'BGRX')
         
+        #convert from rbg to black
         #img = img.convert('RGB', palette= Image.ADAPTIVE, colors =1)
 
         #less efficient conversion
         #img = Image.frombytes('RGB', im.size, im.rgb)
 
+        scale = 0.1
+
         #compress PIL image to (X,Y)
-        img = img.resize((900,500))
+        img = img.resize(img.shape*scale)
         
         
         #sct.compression_level = 9
