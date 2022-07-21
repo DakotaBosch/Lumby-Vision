@@ -1,5 +1,0 @@
-﻿  Generating code
-  Previous IPDB not found, fall back to full compilation.
-  All 3517 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  darknet_no_gpu.vcxproj -> C:\Users\Lumpy\Documents\GitHub\darknet\build\darknet\x64\darknet_no_gpu.exe
