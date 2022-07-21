@@ -3,7 +3,7 @@ import os
 import random
 
 
-dir = "C:\\Users\\Lumpy\\Documents\\GitHub\\OSRS_Vince\\darknet\\data\\custom\\*.png"
+dir = ".\\darknet\\data\\custom\\*.png"
 
 imgs =  glob.glob(dir)
 
