@@ -1,3 +1,0 @@
-.\darknet\data\custom\5.png
-.\darknet\data\custom\11.png
-.\darknet\data\custom\3.png

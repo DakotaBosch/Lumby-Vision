@@ -3,7 +3,7 @@ import os
 import random
 
 
-dir = ".\\darknet\\data\\custom\\*.png"
+dir = "data/custom/*.png"
 
 imgs =  glob.glob(dir)
 
@@ -17,8 +17,7 @@ random.shuffle(imgs)
 train = imgs[:train_size] 
 test = imgs[train_size:]
 
-print (train)
-
+print (len(train), ' training images \n', len(test), ' test images') 
 
 with open('config/test.txt', 'w') as file:
     for text in test:

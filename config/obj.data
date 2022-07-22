@@ -1,5 +1,0 @@
-classes=1
-train=.\config\train.txt
-valid=.\config\test.txt
-names=.\config\obj.names
-backup=./darknet/backup
