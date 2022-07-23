@@ -12,7 +12,7 @@ start_time = time.time()
 mon = {'top': 30, 'left': 60, 'width': 1800, 'height': 1000}
 
 duration = np.empty((1,))
-count =0
+count = 15
 
 with mss.mss() as sct:
     while True:
@@ -22,7 +22,7 @@ with mss.mss() as sct:
         #convert mss image to PIL image, BRG OR RGB
         img = Image.frombytes('RGB', im.size, im.bgra, 'raw', 'BGRX')
         
-        scale = 0.125
+        scale = 0.5
         wid, hgt = img.size
         wid = int(scale*wid)
         hgt = int(scale*hgt)
@@ -33,7 +33,7 @@ with mss.mss() as sct:
         cvim = cv2.cvtColor(np.array(img), cv2.COLOR_BGR2RGB)
         cv2.imshow('test', cvim)
         
-        img.save("darknet/data/custom/" + str(count) + '.png')
+        img.save("custom/" + str(count) + '.png')
         time.sleep(6)
 
 
