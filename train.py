@@ -1,13 +1,17 @@
 import os
+import time
 
-data = ' config/obj.data'
-cfg = ' config/yolov3-tiny.cfg'
-init = ' config/darknet53.conv.74'
+data = ' custom/lumby.data'
+cfg = ' custom/yolov3-tiny.cfg'
+init = ' backup/yolov3-tiny_final.weights data/custom/5.png'
 dark = './darknet'
-function = ' detector train'
-flags = ' -dont_show -map'
+function = ' detector demo'
+#flags = ' -dont_show -map'
 
-arg = dark + function + data + cfg + init + flags
+arg = dark + function + data + cfg + init
 
 print(arg)
+
+initial = time.time()
 os.system(arg)
+print(time.time() - initial)

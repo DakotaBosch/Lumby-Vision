@@ -19,12 +19,12 @@ test = imgs[train_size:]
 
 print (len(train), ' training images \n', len(test), ' test images') 
 
-with open('config/test.txt', 'w') as file:
+with open('custom/valid.txt', 'w') as file:
     for text in test:
         file.write(text)
         file.write('\n')
 
-with open('config/train.txt', 'w') as file:
+with open('custom/train.txt', 'w') as file:
     for text in train:
         file.write(text)
         file.write('\n')
